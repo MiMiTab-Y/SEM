@@ -6,7 +6,7 @@ from utils import *
 
 
 def offense():
-    print "\nOffense"
+    print("\nOffense")
     n1 = [0, 0, 0, 0, 0]
     n2 = [0, 0, 0, 0, 0]
     n3 = [0, 0, 0, 0, 0]
@@ -19,23 +19,23 @@ def offense():
                   [3, 4, 5],
                   [0, 1, 2, 3, 4, 5],
                   [8, 9, 10]]
-    nfl_blocks = [[6, 7], 
-                  [0, 2], 
-                  [3, 5],
-                  [1, 4],
-                  [8, 9, 10]]
+    nfl_blocks = [0, 1, 2]
+    # nfl_blocks = [[6, 7], 
+    #               [0, 2], 
+    #               [3, 5],
+    #               [1, 4],
+    #               [8, 9, 10]]
     myfile = "data/offense.csv"
     X = read_data(myfile)
     pls = PathModel()
     pls.fit(X, nfl_path, nfl_blocks, nfl_modes)
-    print "outer matrix"
-    print pls.outer_weight
-    print "inner matrix"
-    print pls.path_coef
-
+    print("outer matrix")
+    print(pls.outer_weight)
+    print("inner matrix")
+    print(pls.path_coef)
 
 def satisfaction():
-    print "\nSatisfaction"
+    print ("\nSatisfaction")
     IMAG = [0, 0, 0, 0, 0, 0]
     EXPE = [1, 0, 0, 0, 0, 0]
     QUAL = [0, 1, 0, 0, 0, 0]
@@ -50,14 +50,14 @@ def satisfaction():
     X = read_data(myfile)
     pls = PathModel()
     pls.fit(X, sat_path, sat_blocks, modes)
-    print "outer matrix"
-    print pls.outer_weight
-    print "inner matrix"
-    print pls.path_coef
+    print ("outer matrix")
+    print (pls.outer_weight)
+    print ("inner matrix")
+    print (pls.path_coef)
 
 
 def spainfoot():
-    print "\nSpainfoot"
+    print ("\nSpainfoot")
     myfile = "data/spainfoot.csv"
     X = read_data(myfile)
     attack = [0, 0, 0]
@@ -76,10 +76,10 @@ def spainfoot():
     outer_mat = list_to_dummy(blocks)
     latent = calc_latent_variable(X, w_mat, outer_mat)
     path_coef, path_intercept, path_r2 = calc_weight_inner(path_matrix, latent)
-    print "outer matrix"
-    print w_mat
-    print "inner matrix"
-    print path_coef
+    print ("outer matrix")
+    print (w_mat)
+    print ("inner matrix")
+    print (path_coef)
 
 
 if __name__ == "__main__":

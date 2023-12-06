@@ -199,8 +199,8 @@ def calc_weight_outer(X, path_matrix, blocks, modes, scheme="path", max_iter=100
         if w_dif < tol:
             break
         w_old = w_new.copy()
-    print "Iteration:", iter
-    print "Tolerance:", w_dif
+    print("Iteration:", iter)
+    print("Tolerance:", w_dif)
     w_std = np.std(X.dot(w_mat), 0)
     w_mat = w_mat / w_std
     return w_mat
